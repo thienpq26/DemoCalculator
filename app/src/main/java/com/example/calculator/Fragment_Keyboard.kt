@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.fragment_keyboard.*
+import java.lang.Exception
 
 class Fragment_Keyboard : Fragment() {
 
@@ -17,4 +22,6 @@ class Fragment_Keyboard : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_keyboard, container, false)
     }
+
+
 }
