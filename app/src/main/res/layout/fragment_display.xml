@@ -22,11 +22,10 @@
         app:layout_constraintGuide_percent="0.6" />
 
     <TextView
-        android:id="@+id/txtOne"
+        android:id="@+id/txtThree"
         style="@style/TextView12"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="5"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,19 +37,21 @@
         style="@style/TextView12"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="- 5"
+        android:text="5"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/txtThree"
+        android:id="@+id/txtOne"
         style="@style/TextView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="= 0"
+        android:text="*(-1)"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
