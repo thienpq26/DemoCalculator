@@ -76,32 +76,4 @@ class Fragment_Keyboard : Fragment() {
         listener = null
     }
 
-//    fun appendExpression(number: String, type: Boolean) {
-//        if (txtThree.text.isNotEmpty()) {
-//            txtOne.text = ""
-//            txtTwo.text = ""
-//        }
-//
-//        if (type) {
-//            txtThree.text = ""
-//            txtTwo.append(number)
-//        } else {
-//            txtTwo.append(txtThree.text)
-//            txtTwo.append(number)
-//            txtThree.text = ""
-//        }
-//    }
-
-//    fun calculating() {
-//        try {
-//            // build expression
-//            val expression = ExpressionBuilder(txtTwo.text.toString()).build()
-//            val result = expression.evaluate()
-//            val longResult = result.toLong()
-//            if (result == longResult.toDouble()) txtThree.text = longResult.toString()
-//            else txtTwo.text = result.toString()
-//        } catch (e: Exception) {
-//            Log.d("d", "exceptionMessage: " + e.message)
-//        }
-//    }
 }

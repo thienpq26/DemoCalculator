@@ -1,9 +1,11 @@
 package com.example.calculator
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Display
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,11 +30,24 @@ class Fragment_Display : Fragment() {
         return view
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val sharedPreferences =
+            activity!!.getSharedPreferences("data_result", Context.MODE_PRIVATE)
+        var result = sharedPreferences.getString("result", null)
+        if (result != null) {
+            txtOne.text = result
+        }
+    }
+
     fun setTextDisplay(message: String, type: Boolean) {
         if (!type) {
             if (message.compareTo("=") == 0) {
                 if (txtOne.text.isEmpty() || txtTwo.text.isEmpty()) {
-                    if (!txtOne.text.toString().contains("sin") && !txtOne.text.toString().contains("cos")) {
+                    if (!txtOne.text.toString().contains("sin") && !txtOne.text.toString().contains(
+                            "cos"
+                        )
+                    ) {
                         Toast.makeText(context, "Input number, please!!", Toast.LENGTH_SHORT).show()
                     } else if (!txtOne.text.toString().contains(")")) {
                         Toast.makeText(context, "Input number, please!!", Toast.LENGTH_SHORT).show()
@@ -65,7 +80,12 @@ class Fragment_Display : Fragment() {
                 txtOne.append(message)
             } else if (message.compareTo(")") == 0) {
                 txtOne.append(message)
-            } else if (txtOne.text.toString().compareTo("/") == 0 || txtOne.text.toString().compareTo("*") == 0 || txtOne.text.toString().compareTo("-") == 0 || txtOne.text.toString().compareTo("+") == 0) {
+            } else if (txtOne.text.toString().compareTo("/") == 0 || txtOne.text.toString().compareTo(
+                    "*"
+                ) == 0 || txtOne.text.toString().compareTo("-") == 0 || txtOne.text.toString().compareTo(
+                    "+"
+                ) == 0
+            ) {
                 txtOne.append(message)
             } else {
                 txtThree.text = ""
@@ -95,5 +115,20 @@ class Fragment_Display : Fragment() {
         } catch (e: Exception) {
             Log.d("d", "exceptionMessage: " + e.message)
         }
+    }
+
+    fun setAC() {
+        txtOne.text = ""
+        txtTwo.text = ""
+        txtThree.text = ""
+    }
+
+    fun saveResult() {
+        var result = txtOne.text.toString().substring(2, txtOne.text.length)
+        val sharedPreferences =
+            activity!!.getSharedPreferences("data_result", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString("result", result)
+        editor.commit()
     }
 }
